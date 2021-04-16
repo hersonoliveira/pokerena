@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, url_for, redirect
 
 
 app = Flask(__name__)
@@ -26,4 +26,11 @@ def add_game():
         session["game_name"] = request.form["game_name"]
         session["date"] = request.form["date"]
         session["players"] = request.form["players"]
+        return redirect(url_for("list_games"))
+
     return render_template("add_game.html")
+
+
+@app.route("/list_games")
+def list_games():
+    return render_template("games.html")

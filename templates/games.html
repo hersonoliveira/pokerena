@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>List of games</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Date</td>
+                <td>Players</td>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{ session["game_name"] }}</td>
+            <td>{{ session["date"] }}</td>
+            <td>{{ session["players"] }}</td>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
