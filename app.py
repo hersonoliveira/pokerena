@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 
 
 app = Flask(__name__)
+
+app.secret_key = b"\x91\xd7\x15\x96\xb9=\x8c\x03\xfe\xc0vX\xe9\x14h[\x95\xa8\xaf\xcf>\x1a\x0e\xfb\x0e3\x97/P\x9e\xef9"
 
 
 @app.route("/")
@@ -19,4 +21,9 @@ def add_game():
     if request.method == "POST":
         for key, value in request.form.items():
             print(f"key: {key} | value: {value}")
+
+        # Save form data to the session object
+        session["game_name"] = request.form["game_name"]
+        session["date"] = request.form["date"]
+        session["players"] = request.form["players"]
     return render_template("add_game.html")
