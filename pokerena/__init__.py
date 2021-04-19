@@ -1,0 +1,8 @@
+from flask import Flask
+
+
+def create_app():
+    app = Flask(__name__)
+    app.secret_key = b"\x91\xd7\x15\x96\xb9=\x8c\x03\xfe\xc0vX\xe9\x14h[\x95\xa8\xaf\xcf>\x1a\x0e\xfb\x0e3\x97/P\x9e\xef9"
+
+    return app

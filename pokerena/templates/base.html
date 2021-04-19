@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pokerena</title>
+
+    <!-- Local CSS file for styling the application-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  </head>
+
+  <body>
+    <header class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand">Pokerena</a>
+      </div>
+      <div class="text-end">
+        <button type="button">Login</button>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <!-- child template -->
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
