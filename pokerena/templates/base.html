@@ -12,7 +12,10 @@
 
   <body>
     <header class="p-2 navbar navbar-dark bg-dark">
-      <a class="navbar-brand">Pokerena</a>
+      <div>
+        <img src="{{ url_for('static', filename='images/poker_chip.png') }}" width="32" height="32">
+        <a class="navbar-brand">Pokerena</a>
+      </div>
       <div class="text-end">
         <button class="btn btn-outline-light me-2" type="button">Login</button>
         <button class="btn btn-warning" type="button">Sign-up</button>
