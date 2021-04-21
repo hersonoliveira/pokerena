@@ -9,7 +9,6 @@ def create_app():
     # Configure the Flask app
     config_type = os.getenv("CONFIG_TYPE", default="config.DevelopmentConfig")
     app.config.from_object(config_type)
-    print(app.config)
 
     return app
 
