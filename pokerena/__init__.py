@@ -10,8 +10,13 @@ def create_app():
     config_type = os.getenv("CONFIG_TYPE", default="config.DevelopmentConfig")
     app.config.from_object(config_type)
 
+    # Register blueprints
+    register_blueprints(app)
+
     return app
 
 
-def register_blueprints():
-    pass
+def register_blueprints(app):
+    from pokerena.games import games_blueprint
+
+    app.register_blueprint(games_blueprint)

@@ -1,1 +1,3 @@
 # pokerena
+
+- [ ] Allow create clubs
