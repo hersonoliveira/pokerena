@@ -18,5 +18,7 @@ def create_app():
 
 def register_blueprints(app):
     from pokerena.games import games_blueprint
+    from pokerena.users import users_blueprint
 
     app.register_blueprint(games_blueprint)
+    app.register_blueprint(users_blueprint)

@@ -5,11 +5,6 @@ from pokerena import create_app
 app = create_app()
 
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-
 @app.route("/add_game", methods=["GET", "POST"])
 def add_game():
     if request.method == "POST":
