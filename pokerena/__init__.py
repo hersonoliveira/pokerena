@@ -1,5 +1,8 @@
-from flask import Flask
+import logging
 import os
+from logging.handlers import RotatingFileHandler
+
+from flask import Flask
 
 
 def create_app():
@@ -10,15 +13,30 @@ def create_app():
     config_type = os.getenv("CONFIG_TYPE", default="config.DevelopmentConfig")
     app.config.from_object(config_type)
 
+    # Logging config
+    _config_logging(app)
+    app.logger.info("Starting the Pokerena App")
+
     # Register blueprints
-    register_blueprints(app)
+    _register_blueprints(app)
 
     return app
 
 
-def register_blueprints(app):
+def _register_blueprints(app):
     from pokerena.games import games_blueprint
     from pokerena.users import users_blueprint
 
     app.register_blueprint(games_blueprint)
     app.register_blueprint(users_blueprint)
+
+
+def _config_logging(app):
+    file_handler = RotatingFileHandler(
+        filename="instance/pokerena.log",
+        maxBytes=16000,
+        backupCount=10,
+    )
+    file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(filename)s:%(lineno)d]')
+    file_handler.setFormatter(file_formatter)
+    app.logger.addHandler(file_handler)
