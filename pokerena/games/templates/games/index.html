@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Welcome to Pokerena</h1>
+<div class="row pt-5">
+    <div class="col-md-4 offset-md-2">
+        <img src="{{ url_for('static', filename='images/poker_table.jpg') }}" class="rounded">
+    </div>
+    <div class="col-md-4">
+        <h3>
+            Welcome to
+        </h3>
+        <h1 class="display-2">
+            <strong>Pokerena</strong>
+        </h1>
+        <p class="lead">A casa do poker</p>
+    </div>
+</div>
 {% endblock %}
