@@ -2,7 +2,7 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 def create_app():
@@ -19,6 +19,9 @@ def create_app():
 
     # Register blueprints
     _register_blueprints(app)
+
+    # Register error pages
+    _register_error_pages(app)
 
     return app
 
@@ -40,3 +43,9 @@ def _config_logging(app):
     file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(filename)s:%(lineno)d]')
     file_handler.setFormatter(file_formatter)
     app.logger.addHandler(file_handler)
+
+
+def _register_error_pages(app):
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template("404.html"), 404
