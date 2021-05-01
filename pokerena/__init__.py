@@ -1,8 +1,11 @@
 import logging
 import os
 from logging.handlers import RotatingFileHandler
-
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
 
 
 def create_app():
@@ -16,6 +19,9 @@ def create_app():
     # Logging config
     _config_logging(app)
     app.logger.info("Starting the Pokerena App")
+
+    # Initialize extensions
+    init_extensions(app)
 
     # Register blueprints
     _register_blueprints(app)
@@ -49,3 +55,7 @@ def _register_error_pages(app):
     @app.errorhandler(404)
     def page_not_found(e):
         return render_template("404.html"), 404
+
+
+def init_extensions(app):
+    db.init_app(app)
