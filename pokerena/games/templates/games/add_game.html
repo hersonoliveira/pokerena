@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-md-6 offset-md-3">
-    <h1>Create a new game</h1>
+<div class="row p-5 mt-5 bg-light col-md-6 offset-md-3 rounded">
+    <h2 class="pb-4">Add new game</h2>
     <form method="POST">
         <div class="form-group">
             <label for="gameName">Name</label>
@@ -12,7 +12,7 @@
             <label for="description">Description</label>
             <input type="text" id="description" name="description" class="form-control"/>
         </div>
-        <div class="form-group">
+        <div class="form-group pb-3">
             <label for="date">Date</label>
             <input type="date" id="date" name="date" class="form-control"/>
         </div>

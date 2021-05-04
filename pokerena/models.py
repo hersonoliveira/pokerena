@@ -21,8 +21,20 @@ class Game(db.Model):
         return f"<Game(name='{self.name}', description='{self.description}', date='{self.date}')>"
 
 
-# class User(db.Model):
-#     pass
+class User(db.Model):
+    """
+    Representation of a user/poker player
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False)
+
+    def __init__(self, name: str, email: str):
+        self.name = name
+        self.email = email
+
+    def __repr__(self):
+        return f"<User(name='{self.name}', email='{self.email}')>"
 
 
 # class Club(db.Model):
