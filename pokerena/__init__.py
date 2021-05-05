@@ -3,9 +3,11 @@ import os
 from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 
 db = SQLAlchemy()
+db_migration = Migrate()
 
 
 def create_app():
@@ -46,7 +48,9 @@ def _config_logging(app):
         maxBytes=16000,
         backupCount=10,
     )
-    file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(filename)s:%(lineno)d]')
+    file_formatter = logging.Formatter(
+        "%(asctime)s %(levelname)s: %(message)s [in %(filename)s:%(lineno)d]"
+    )
     file_handler.setFormatter(file_formatter)
     app.logger.addHandler(file_handler)
 
@@ -59,3 +63,4 @@ def _register_error_pages(app):
 
 def init_extensions(app):
     db.init_app(app)
+    db_migration.init_app(app, db)

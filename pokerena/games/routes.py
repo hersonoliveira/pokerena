@@ -1,10 +1,11 @@
 from datetime import datetime
 
-from flask import redirect, render_template, request, session, url_for, current_app
+from flask import current_app, redirect, render_template, request, url_for
+from pokerena import db
+from pokerena.models import Game
 
 from . import games_blueprint
-from pokerena.models import Game
-from pokerena import db
+
 
 @games_blueprint.route("/")
 def index():
@@ -17,7 +18,7 @@ def add_game():
         new_game = Game(
             name=request.form["game_name"],
             description=request.form["description"],
-            date=datetime.fromisoformat(request.form["date"])
+            date=datetime.fromisoformat(request.form["date"]),
         )
         # Commit to datadase
         db.session.add(new_game)
@@ -31,4 +32,5 @@ def add_game():
 
 @games_blueprint.route("/list_games")
 def list_games():
-    return render_template("games/games.html")
+    games = Game.query.order_by(Game.id).all()
+    return render_template("games/games.html", games=games)
