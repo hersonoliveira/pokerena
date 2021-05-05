@@ -20,6 +20,7 @@ def add_game():
             description=request.form["description"],
             date=datetime.fromisoformat(request.form["date"]),
         )
+        print(request.form["date"])
         # Commit to datadase
         db.session.add(new_game)
         db.session.commit()
