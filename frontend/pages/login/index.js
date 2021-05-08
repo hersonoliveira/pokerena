@@ -1,27 +1,35 @@
 import Link from "next/link";
-import Image from "next/image";
 import Head from "next/head";
-import Layout from "../../src/components/Layout";
+
 import Button from "react-bootstrap/Button";
+import Container from 'react-bootstrap/Container';
+import Image from "react-bootstrap/Image";
+
+import FormTemplate from "../../src/components/Form";
 
 export default function Login() {
   return (
-    <Layout>
+    <Container>
       <Head>
         <title>Login Page</title>
       </Head>
+
       <h1>Login Page</h1>
       <Image
-        src="/images/profile.jpg" // Route of the image file
+        src="/images/profile.png" // Route of the image file
         height={144} // Desired size with correct aspect ratio
         width={144} // Desired size with correct aspect ratio
+        roundedCircle
         alt="Guilherme Eisfeld"
       />
+
+      <FormTemplate></FormTemplate>
+
       <h2>
         <Link href="/">
           <Button>Back to home</Button>
         </Link>
       </h2>
-    </Layout>
+    </Container>
   );
 }
