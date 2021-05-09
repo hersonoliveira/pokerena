@@ -1,13 +1,15 @@
 import logging
 import os
 from logging.handlers import RotatingFileHandler
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
+from flask import Flask, render_template
+from flask_bcrypt import Bcrypt
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 db_migration = Migrate()
+bcrypt = Bcrypt()
 
 
 def create_app():
@@ -64,3 +66,4 @@ def _register_error_pages(app):
 def init_extensions(app):
     db.init_app(app)
     db_migration.init_app(app, db)
+    bcrypt.init_app(app)

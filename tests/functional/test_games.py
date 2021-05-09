@@ -2,7 +2,7 @@ def test_post_add_new_game(test_client):
     """
     GIVEN a flask app
     WHEN the '/add_game' is POST
-    THEN check 
+    THEN check endpoint is success
     """
     response = test_client.post(
         "/add_game",
