@@ -4,9 +4,12 @@ import Link from "next/link";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+import Header from "../../src/components/Header";
+
 export default function Ranking() {
   return (
-    <Container>
+    <>
+      <Header />
       <Head>
         <title>Ranking</title>
       </Head>
@@ -16,6 +19,6 @@ export default function Ranking() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Container>
+    </>
   );
 }

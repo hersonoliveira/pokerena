@@ -4,9 +4,12 @@ import Link from "next/link";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+import Header from "../../src/components/Header";
+
 export default function Pictures() {
   return (
-    <Container>
+    <>
+      <Header />
       <Head>
         <title>Fotos</title>
       </Head>
@@ -16,6 +19,6 @@ export default function Pictures() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Container>
+    </>
   );
 }

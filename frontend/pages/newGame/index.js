@@ -4,9 +4,12 @@ import Link from "next/link";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
+import Header from "../../src/components/Header";
+
 export default function NewGame() {
   return (
-    <Container>
+    <>
+      <Header />
       <Head>
         <title>Começando um novo Torneio</title>
       </Head>
@@ -16,6 +19,6 @@ export default function NewGame() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Container>
+    </>
   );
 }

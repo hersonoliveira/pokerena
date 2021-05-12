@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import Header from "../../src/components/Header";
 
 export default function Tournament() {
   return (
-    <Container>
+    <>
+      <Header />
       <Head>
         <title>Torneios</title>
       </Head>
@@ -16,6 +18,6 @@ export default function Tournament() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Container>
+    </>
   );
 }
