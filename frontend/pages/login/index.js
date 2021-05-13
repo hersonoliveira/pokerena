@@ -7,14 +7,11 @@ import Image from "react-bootstrap/Image";
 
 import FormTemplate from "../../src/components/Form";
 import Header from "../../src/components/Header";
+import Layout from "../../src/components/Layout";
 
 export default function Login() {
   return (
-    <>
-      <Header />
-      <Head>
-        <title>Login Page</title>
-      </Head>
+    <Layout>
 
       <h1>Login Page</h1>
       <Image
@@ -32,6 +29,6 @@ export default function Login() {
           <Button>Back to home</Button>
         </Link>
       </h2>
-    </>
+    </Layout>
   );
 }

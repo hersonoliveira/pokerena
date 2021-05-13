@@ -5,20 +5,16 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
 import Header from "../../src/components/Header";
+import Layout from "../../src/components/Layout";
 
 export default function Ranking() {
   return (
-    <>
-      <Header />
-      <Head>
-        <title>Ranking</title>
-      </Head>
-
+    <Layout>
       <h2>Ranking</h2>
 
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </>
+    </Layout>
   );
 }

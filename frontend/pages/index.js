@@ -3,24 +3,13 @@ import Link from "next/link";
 
 import Image from "react-bootstrap/Image";
 
-import Header from "../src/components/Header";
+import Layout from "../src/components/Layout";
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>POKERENA</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Header />
-
+    <Layout>
       <main>
         <h1 className="title">POKERENA</h1>
-        {/* <Link href="/login">
-          <Button>Login by clicking here!</Button>
-        </Link> */}
-
         <p className="description">A Jogatina da Quarentena</p>
 
         <Image
@@ -52,21 +41,6 @@ export default function Home() {
           </a>
         </div>
       </main>
-
-      <footer>
-        <a
-          href="https://github.com/campodegelo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img
-            src="/images/campodegelo.png"
-            alt="Vercel Logo"
-            className="logo"
-          />
-        </a>
-      </footer>
-    </div>
+    </Layout>
   );
 }

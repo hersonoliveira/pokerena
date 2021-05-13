@@ -9,12 +9,13 @@ const Header = (props) => {
       bg="dark"
       variant="dark"
       expand="sm"
+      fixed
     >
       <Navbar.Brand href="/">POKERENA</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="menu">
-          <Nav.Item>
+        <Nav className="container-fluid">
+          <Nav.Item className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
           </Nav.Item>
           <Nav.Item>
