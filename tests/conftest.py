@@ -11,13 +11,11 @@ def test_client():
     with app.test_client() as testing_client:
         with app.app_context():
             current_app.logger.info("In the test_client() fixture, creating db...")
-
             db.create_all()
 
-    yield testing_client
+            yield testing_client
 
-    with app.app_context():
-        db.drop_all()
+            db.drop_all()
 
 
 @pytest.fixture(scope="module")

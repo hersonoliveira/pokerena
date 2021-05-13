@@ -14,6 +14,7 @@ class Config(object):
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BCRYPT_LOG_ROUNDS = 15
+    WTF_CSRF_ENABLED = True
 
 
 class ProductionConfig(Config):
