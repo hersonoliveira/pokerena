@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "pokerena540dbc80": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

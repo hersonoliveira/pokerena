@@ -8,7 +8,7 @@ import Layout from "../../src/components/Layout";
 
 export default function Tournament() {
   return (
-    <Layout>
+    <>
 
       <h1 className="title">Torneios</h1>
       <p className="description">taças passadas</p>
@@ -16,6 +16,6 @@ export default function Tournament() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Layout>
+    </>
   );
 }

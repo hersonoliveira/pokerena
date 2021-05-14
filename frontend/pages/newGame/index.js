@@ -9,7 +9,7 @@ import Layout from "../../src/components/Layout";
 
 export default function NewGame() {
   return (
-    <Layout>
+    <>
       <h1 className="title">Começar um novo Torneio</h1>
       <p className="description">cadastre uma nova partida</p>
 
@@ -17,6 +17,6 @@ export default function NewGame() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Layout>
+    </>
   );
 }

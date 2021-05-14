@@ -9,7 +9,7 @@ import Layout from "../../src/components/Layout";
 
 export default function Pictures() {
   return (
-    <Layout>
+    <>
 
       <h1 className="title">Fotos</h1>
       <p className="description">um show de visual de feiura</p>
@@ -18,6 +18,6 @@ export default function Pictures() {
       <Link href="/">
         <Button>Back to home</Button>
       </Link>
-    </Layout>
+    </>
   );
 }

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
@@ -16,19 +18,29 @@ const Header = (props) => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="container-fluid">
           <Nav.Item className="ml-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Link href="/" passHref>
+              <Nav.Link>Home</Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/newGame">Novo Jogo</Nav.Link>
+            <Link href="/newGame" passHref>
+              <Nav.Link>Novo Jogo</Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/ranking">Ranking</Nav.Link>
+            <Link href="/ranking" passHref>
+              <Nav.Link>Ranking</Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/tournament">Torneios</Nav.Link>
+            <Link href="/tournament" passHref>
+              <Nav.Link>Torneios</Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/pictures">Imagens</Nav.Link>
+            <Link href="/pictures" passHref>
+              <Nav.Link>Imagens</Nav.Link>
+            </Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>
