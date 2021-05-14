@@ -1,9 +1,28 @@
+import {AmplifySignOut } from "@aws-amplify/ui-react";
+
+import { useState, useEffect } from "react";
+import { Auth } from "aws-amplify";
+
 import Link from "next/link";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 const Header = (props) => {
+  const [logout, setLogout] = useState(false);
+
+  useEffect(() => {
+    // Acessa a sessão do usuário no cliente
+    Auth.currentAuthenticatedUser()
+      .then((user) => {
+        console.log("User: ", user);
+        setLogout(true);
+      })
+      .catch((err) => setLogout(false));
+  }, []);
+
+
+
   return (
     <Navbar
       className="header"
@@ -13,7 +32,9 @@ const Header = (props) => {
       expand="sm"
       fixed
     >
-      <Navbar.Brand href="/">POKERENA</Navbar.Brand>
+      <Link href="/" passHref>
+        <Navbar.Brand>POKERENA</Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="container-fluid">

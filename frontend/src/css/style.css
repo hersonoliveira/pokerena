@@ -11,9 +11,9 @@ body {
 }
 
 :root {
-  --amplify-primary-color: #0083e8;
-  --amplify-primary-tint: #006ec2;
-  --amplify-primary-shade: #006ec2;
+  --amplify-primary-color: #222629;
+  --amplify-primary-tint: #77848e;
+  --amplify-primary-shade: #b6ccdd;
 }
 
 main {
@@ -23,6 +23,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 75vh;
 }
 
 footer {
@@ -133,7 +134,9 @@ code {
 .mainLogo {
   height:18rem;
   object-fit: cover;
-  margin-top: 2rem;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
 }
 
 .header {
@@ -149,4 +152,10 @@ code {
     width: 100%;
     flex-direction: column;
   }
+}
+
+.flame {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }

@@ -18,7 +18,7 @@ export default function Home() {
     Auth.currentAuthenticatedUser()
       .then((user) => setUser(user))
       // Se o usuário não estiver autenticado, redirecione ele para a página `/profile`
-      .catch(() => router.push("/profile"));
+      .catch(() => router.push("/login"));
   }, []);
   if (!user) return null;
 
@@ -33,8 +33,6 @@ export default function Home() {
         roundedCircle
         className="mainLogo"
       />
-
-      <AmplifySignOut />
 
       <div className="grid">
         <a href="/newGame" className="card">

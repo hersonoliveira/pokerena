@@ -2,26 +2,25 @@ import { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
-
 import Image from "react-bootstrap/Image";
 import Layout from "../../src/components/Layout";
 
 const Profile = (props) => {
   const [user, setUser] = useState(null);
+  const router = useRouter();
+
   useEffect(() => {
-    // Acessa a sessão do usuário no cliente
     Auth.currentAuthenticatedUser()
-      .then((user) => {
-        console.log("User: ", user);
-        setUser(user);
-      })
-      .catch((err) => setUser(null));
+      .then((user) => setUser(user))
+      // Se o usuário não estiver autenticado, redirecione ele para a página `/profile`
+      .catch(() => router.push("/login"));
   }, []);
+  if (!user) return null;
   return (
     <div>
       {user && (
         <>
-          <h1 className='title'>Seja bem vindo</h1>
+          <h1 className="title">Seja bem vindo</h1>
           <p className="description">{user.username}</p>
 
           <Image
@@ -60,4 +59,4 @@ const Profile = (props) => {
   );
 };
 
-export default withAuthenticator(Profile);
+export default Profile;
