@@ -6,6 +6,7 @@ const layoutStyle = {
   flexDirection: "column",
   height: "100%",
   width: "100%",
+  minHeight: "100vh",
 };
 
 const contentStyle = {
@@ -21,9 +22,7 @@ const Layout = (props) => {
     <div className="Layout" style={layoutStyle}>
       <Header />
       <main>
-        <div className="Content" style={contentStyle}>
-          {props.children}
-        </div>
+        <div className="Content">{props.children}</div>
       </main>
       <Footer />
     </div>

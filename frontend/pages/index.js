@@ -1,15 +1,31 @@
-import Head from "next/head";
 import Link from "next/link";
 
+import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
+import FormTemplate from "../src/components/Form";
 import Layout from "../src/components/Layout";
 
+import { useState, useEffect } from "react";
+import { Auth } from "aws-amplify";
+import { useRouter } from "next/router";
+
 export default function Home() {
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser()
+      .then((user) => setUser(user))
+      // Se o usuário não estiver autenticado, redirecione ele para a página `/profile`
+      .catch(() => router.push("/login"));
+  }, []);
+  if (!user) return null;
+
   return (
-    <Layout>
-      <h1 className="title">POKERENA</h1>
-      <p className="description">A Jogatina da Quarentena</p>
+    <>
+      <h1 className="title">Seja bem vindo</h1>
+      <p className="description">{user.username}</p>
 
       <Image
         src="/images/fizo.jfif"
@@ -39,6 +55,6 @@ export default function Home() {
           <p>Retratos alcoolizados da balbúrdia</p>
         </a>
       </div>
-    </Layout>
+    </>
   );
 }

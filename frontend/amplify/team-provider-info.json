@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-pokerena-dev-165737-authRole",
+      "UnauthRoleArn": "arn:aws:iam::608865318526:role/amplify-pokerena-dev-165737-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::608865318526:role/amplify-pokerena-dev-165737-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-pokerena-dev-165737-deployment",
+      "UnauthRoleName": "amplify-pokerena-dev-165737-unauthRole",
+      "StackName": "amplify-pokerena-dev-165737",
+      "StackId": "arn:aws:cloudformation:us-east-1:608865318526:stack/amplify-pokerena-dev-165737/a3c624e0-b4ee-11eb-aeab-0a90b79301c3",
+      "AmplifyAppId": "dbis751y2f8nk"
+    },
+    "categories": {
+      "auth": {
+        "pokerena540dbc80": {}
+      }
+    }
+  }
+}
