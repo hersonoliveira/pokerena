@@ -13,15 +13,18 @@ const contentStyle = {
   display: "flex",
   flexDirection: "column",
   minHeight: "75vh",
+  alignItems: "center",
 };
 
 const Layout = (props) => {
   return (
     <div className="Layout" style={layoutStyle}>
       <Header />
-      <div className="Content" style={contentStyle}>
-        {props.children}
-      </div>
+      <main>
+        <div className="Content" style={contentStyle}>
+          {props.children}
+        </div>
+      </main>
       <Footer />
     </div>
   );

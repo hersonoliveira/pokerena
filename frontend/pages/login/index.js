@@ -12,14 +12,15 @@ import Layout from "../../src/components/Layout";
 export default function Login() {
   return (
     <Layout>
+      <h1 className="title">Acesso</h1>
+      <p className="description">entre com seus dados</p>
 
-      <h1>Login Page</h1>
       <Image
         src="/images/profile.png" // Route of the image file
         height={144} // Desired size with correct aspect ratio
         width={144} // Desired size with correct aspect ratio
         roundedCircle
-        alt="Guilherme Eisfeld"
+        alt="coin poker"
       />
 
       <FormTemplate></FormTemplate>

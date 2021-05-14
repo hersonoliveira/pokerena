@@ -11,7 +11,9 @@ export default function Pictures() {
   return (
     <Layout>
 
-      <h2>Fotos</h2>
+      <h1 className="title">Fotos</h1>
+      <p className="description">um show de visual de feiura</p>
+
 
       <Link href="/">
         <Button>Back to home</Button>

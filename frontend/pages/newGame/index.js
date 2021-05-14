@@ -10,7 +10,9 @@ import Layout from "../../src/components/Layout";
 export default function NewGame() {
   return (
     <Layout>
-      <h2>Começando um novo Torneio</h2>
+      <h1 className="title">Começar um novo Torneio</h1>
+      <p className="description">cadastre uma nova partida</p>
+
 
       <Link href="/">
         <Button>Back to home</Button>

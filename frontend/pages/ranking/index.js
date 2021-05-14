@@ -10,7 +10,8 @@ import Layout from "../../src/components/Layout";
 export default function Ranking() {
   return (
     <Layout>
-      <h2>Ranking</h2>
+      <h1 className="title">Ranking</h1>
+      <p className="description">melhores e piores</p>
 
       <Link href="/">
         <Button>Back to home</Button>

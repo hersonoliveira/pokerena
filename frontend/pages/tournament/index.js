@@ -10,7 +10,8 @@ export default function Tournament() {
   return (
     <Layout>
 
-      <h2>Torneios</h2>
+      <h1 className="title">Torneios</h1>
+      <p className="description">taças passadas</p>
 
       <Link href="/">
         <Button>Back to home</Button>
