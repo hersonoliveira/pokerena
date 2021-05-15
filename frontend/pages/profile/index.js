@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
+import { useRouter } from "next/router";
 import Image from "react-bootstrap/Image";
 import Layout from "../../src/components/Layout";
 
