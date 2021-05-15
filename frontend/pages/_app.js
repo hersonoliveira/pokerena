@@ -1,4 +1,4 @@
-import Link from "next/link";
+  import Link from "next/link";
 import { css } from "@emotion/css";
 import Amplify from "aws-amplify";
 import config from "../src/aws-exports";
