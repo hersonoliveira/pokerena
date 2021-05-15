@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { css } from "@emotion/css";
 import Amplify from "aws-amplify";
-import config from "../samrc/aws-exports";
+import config from "../src/aws-exports";
 Amplify.configure({
   ...config,
   ssr: true,
@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <Component {...pageProps} />
+      <Component {...pageProps} />
     </Layout>
   );
 }
