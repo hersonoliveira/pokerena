@@ -1,13 +1,3 @@
-def test_get_registration_page(test_client):
-    """
-    GIVEN
-    WHEN
-    THEN
-    """
-    response = test_client.get("users/register")
-    assert response.status_code == 200
-
-
 def test_valid_registration(test_client):
     """
     GIVEN
@@ -16,12 +6,11 @@ def test_valid_registration(test_client):
     """
     response = test_client.post(
         "users/register",
-        data={
+        json={
             "name": "test_user",
             "email": "test@test.com",
             "password": "Flask1234",
         },
-        follow_redirects=True,
     )
     assert response.status_code == 200
 
@@ -34,14 +23,13 @@ def test_invalid_registration(test_client):
     """
     response = test_client.post(
         "users/register",
-        data={
+        json={
             "name": "test_user",
             "email": "test@test.com",
             "password": "",
         },
-        follow_redirects=True,
     )
-    assert response.status_code == 200
+    assert response.status_code == 400
 
 
 def test_duplicate_registration(test_client):
@@ -52,7 +40,7 @@ def test_duplicate_registration(test_client):
     """
     test_client.post(
         "users/register",
-        data={
+        json={
             "name": "test_user",
             "email": "test@test.com",
             "password": "Flask1234",
@@ -60,11 +48,10 @@ def test_duplicate_registration(test_client):
     )
     response = test_client.post(
         "users/register",
-        data={
+        json={
             "name": "test_user",
             "email": "test@test.com",
             "password": "Flask1234",
         },
-        follow_redirects=True,
     )
-    assert response.status_code == 200
+    assert response.status_code == 400
