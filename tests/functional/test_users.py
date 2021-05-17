@@ -5,14 +5,14 @@ def test_valid_registration(test_client):
     THEN
     """
     response = test_client.post(
-        "users/register",
+        "users/",
         json={
             "name": "test_user",
             "email": "test@test.com",
             "password": "Flask1234",
         },
     )
-    assert response.status_code == 200
+    assert response.status_code == 201
 
 
 def test_invalid_registration(test_client):
@@ -22,7 +22,7 @@ def test_invalid_registration(test_client):
     THEN
     """
     response = test_client.post(
-        "users/register",
+        "users/",
         json={
             "name": "test_user",
             "email": "test@test.com",
@@ -39,7 +39,7 @@ def test_duplicate_registration(test_client):
     THEN
     """
     test_client.post(
-        "users/register",
+        "users/",
         json={
             "name": "test_user",
             "email": "test@test.com",
@@ -47,7 +47,7 @@ def test_duplicate_registration(test_client):
         },
     )
     response = test_client.post(
-        "users/register",
+        "users/",
         json={
             "name": "test_user",
             "email": "test@test.com",

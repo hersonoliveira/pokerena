@@ -15,6 +15,10 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BCRYPT_LOG_ROUNDS = 15
     WTF_CSRF_ENABLED = True
+    SWAGGER = {
+        "title": "pokerena",
+        "openapi": "3.0.1"
+    }
 
 
 class ProductionConfig(Config):

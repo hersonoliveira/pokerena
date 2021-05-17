@@ -6,10 +6,12 @@ from flask import Flask, render_template
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flasgger import Flasgger
 
 db = SQLAlchemy()
 db_migration = Migrate()
 bcrypt = Bcrypt()
+flasgger = Flasgger()
 
 
 def create_app():
@@ -67,3 +69,4 @@ def init_extensions(app):
     db.init_app(app)
     db_migration.init_app(app, db)
     bcrypt.init_app(app)
+    flasgger.init_app(app)
