@@ -60,8 +60,3 @@ def register():
         return f"Email {request_data['email']} already registered", 400
     except Exception as e:
         return str(e), 500
-
-
-@users_blueprint.route("/about")
-def about():
-    return render_template("users/about.html")
