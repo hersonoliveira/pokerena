@@ -1,5 +1,4 @@
 from datetime import datetime
-from enum import unique
 
 from flask import current_app
 
@@ -32,7 +31,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    email = db.Column(db.String, unique=True)
+    email = db.Column(db.String, nullable=False, unique=True)
     password_hashed = db.Column(db.String)
 
     def __init__(self, name: str, email: str, password: str):
