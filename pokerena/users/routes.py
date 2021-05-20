@@ -1,13 +1,47 @@
+from json.encoder import JSONEncoder
 from . import users_blueprint
-from flask import render_template, request, current_app
+from flask import request, current_app
 from pokerena.models import User
 from sqlalchemy.exc import IntegrityError
 from pokerena import db
+import json
 
 
-@users_blueprint.route("/login")
-def login():
-    return render_template("users/login.html")
+@users_blueprint.route("/", methods=["GET"])
+def get_all_users():
+    """
+    Get all users
+    ---
+    description: get all users registerd
+    definitions:
+      User:
+        type: json
+        properties:
+            name:
+                type: string
+            email:
+                type: string
+            password:
+                type: string
+    requestBody:
+        description: new user to add
+        content:
+            application/json:
+                schema:
+                    $ref: '#/definitions/User'
+                example:
+                    name: DummyUser
+                    email: dummy@user.com
+                    password: 1234asd
+        required: true
+    responses:
+      201:
+        description: User created
+    """
+    query_response = User.query.all()
+    response = {user.email: user.name for user in query_response}
+
+    return response, 200, {'Content-Type': 'application/json'}
 
 
 @users_blueprint.route("/", methods=["POST"])
