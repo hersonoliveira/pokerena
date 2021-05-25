@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row p-5 mt-5 bg-light col-md-6 offset-md-3 rounded">
+    <h1>List of games</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Date</td>
+                <td>Players</td>
+            </tr>
+        </thead>
+        {% for game in games %}
+        <tbody>
+            <td>{{ game.name }}</td>
+            <td>{{ game.description }}</td>
+            <td>{{ game.date }}</td>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

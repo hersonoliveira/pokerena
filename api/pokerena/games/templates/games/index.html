@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row pt-5">
+    <div class="col-md-4 offset-md-2">
+        <img src="{{ url_for('static', filename='images/poker_table.jpg') }}" class="rounded">
+    </div>
+    <div class="col-md-4">
+        <h6 class="display-6">
+            Welcome to
+        </h6>
+        <h1 style="font-size: 4em;">
+            <strong>Pokerena</strong>
+        </h1>
+        <p class="lead">A casa do poker na quarentena</p>
+    </div>
+</div>
+{% endblock %}
