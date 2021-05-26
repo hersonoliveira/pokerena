@@ -7,13 +7,12 @@ from pokerena.models import Game
 from . import games_blueprint
 
 
-@games_blueprint.route("/")
-def index():
-    return render_template("games/index.html")
-
-
-@games_blueprint.route("/add_game", methods=["GET", "POST"])
+@games_blueprint.route("/", methods=["POST"])
 def add_game():
+    """
+    Add a new game
+    ---
+    """
     if request.method == "POST":
         new_game = Game(
             name=request.form["game_name"],
@@ -31,7 +30,11 @@ def add_game():
     return render_template("games/add_game.html")
 
 
-@games_blueprint.route("/list_games")
+@games_blueprint.route("/", methods=["GET"])
 def list_games():
+    """
+    Get all games
+    ---
+    """
     games = Game.query.order_by(Game.id).all()
     return render_template("games/games.html", games=games)
