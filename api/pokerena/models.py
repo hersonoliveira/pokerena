@@ -14,6 +14,7 @@ class Game(db.Model):
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
     date = db.Column(db.DateTime, nullable=False)
+    game_facts = db.relationship("GamesFact", backref="game", lazy="dynamic")
 
     def __init__(self, name: str, description: str, date: datetime):
         self.name = name
@@ -33,6 +34,7 @@ class User(db.Model):
     name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
     password_hashed = db.Column(db.String)
+    game_facts = db.relationship("GamesFact", backref="user", lazy="dynamic")
 
     def __init__(self, name: str, email: str, password: str):
         self.name = name
@@ -49,9 +51,14 @@ class User(db.Model):
         return f"<User(name='{self.name}', email='{self.email}')>"
 
 
-# class Club(db.Model):
-#     pass
+class GamesFact(db.Model):
+    """
+    Fact table for games results
+    """
 
-
-# class GamesFact(db.Model):
-#     pass
+    id = db.Column(db.Integer, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey("game.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    position = db.Column(db.Integer, nullable=False)
+    rebuy = db.Column(db.Integer, nullable=False)
+    add_on = db.Column(db.Boolean, nullable=False)
