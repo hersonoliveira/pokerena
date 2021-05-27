@@ -62,3 +62,6 @@ class GamesFact(db.Model):
     position = db.Column(db.Integer, nullable=False)
     rebuy = db.Column(db.Integer, nullable=False)
     add_on = db.Column(db.Boolean, nullable=False)
+
+    def __init__(self, game_id, user_id, position, rebuy, add_on):
+        pass
