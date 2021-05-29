@@ -1,8 +1,8 @@
 def test_valid_registration(test_client):
     """
-    GIVEN
-    WHEN
-    THEN
+    GIVEN a Flask app
+    WHEN the endpoint 'users/' POST one valid user
+    THEN user is created (HTTP code 201 returned)
     """
     response = test_client.post(
         "users/",
@@ -17,9 +17,9 @@ def test_valid_registration(test_client):
 
 def test_invalid_registration(test_client):
     """
-    GIVEN
-    WHEN
-    THEN
+    GIVEN a Flask app
+    WHEN the endpoint 'users/' POST user missing password
+    THEN HTTP Bad request error is returned
     """
     response = test_client.post(
         "users/",
@@ -34,9 +34,9 @@ def test_invalid_registration(test_client):
 
 def test_duplicate_registration(test_client):
     """
-    GIVEN
-    WHEN
-    THEN
+    GIVEN a Flask app
+    WHEN the endpoint 'users/' POST two valid equal users
+    THEN HTTP Bad request error is returned
     """
     test_client.post(
         "users/",
@@ -59,9 +59,9 @@ def test_duplicate_registration(test_client):
 
 def test_get_all_users(test_client):
     """
-    GIVEN
-    WHEN
-    THEN
+    GIVEN a Flask app
+    WHEN the endpoint 'users/' POST two valid diff users
+    THEN a new user is created (HTTP response 200)
     """
     test_client.post(
         "users/",

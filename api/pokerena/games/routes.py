@@ -47,8 +47,12 @@ def add_game():
                     users:
                       - user_id: 1
                         position: 1
+                        rebuy: 1
+                        add_on: true
                       - user_id: 2
                         position: 2
+                        rebuy: 0
+                        add_on: true
         required: true
     responses:
       201:
@@ -67,12 +71,18 @@ def add_game():
     db.session.commit()
 
     # Retrive users
-    # players_json = request_data["users"]
-
-    # Add game facts
-    # new_facts = GamesFact(
-    #     game_id=new_game.id
-    # )
+    users = request_data["users"]
+    for user in users:
+        new_facts = GamesFact(
+            game_id=new_game.id,
+            user_id=user["user_id"],
+            position=user["position"],
+            rebuy=user["rebuy"],
+            add_on=user["add_on"]
+        )
+        db.session.add(new_facts)
+        db.session.commit()
+        current_app.logger.info(f"Game fact added: {new_facts}")
 
     current_app.logger.info(f"New game added: {new_game}")
 

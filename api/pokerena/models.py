@@ -63,5 +63,5 @@ class GamesFact(db.Model):
     rebuy = db.Column(db.Integer, nullable=False)
     add_on = db.Column(db.Boolean, nullable=False)
 
-    def __init__(self, game_id, user_id, position, rebuy, add_on):
-        pass
+    def __repr__(self):
+        return f"<GamesFact(game_id={self.game_id}, user_id={self.user_id}, position={self.position}, rebuy={self.rebuy}, add_on={self.add_on})>"
