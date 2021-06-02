@@ -1,6 +1,7 @@
+import json
 from datetime import datetime
 
-from flask import current_app, render_template, request
+from flask import current_app, request
 from pokerena import db
 from pokerena.models import Game, GamesFact
 
@@ -78,7 +79,7 @@ def add_game():
             user_id=user["user_id"],
             position=user["position"],
             rebuy=user["rebuy"],
-            add_on=user["add_on"]
+            add_on=user["add_on"],
         )
         db.session.add(new_facts)
         db.session.commit()
@@ -95,5 +96,6 @@ def list_games():
     Get all games
     ---
     """
-    games = Game.query.order_by(Game.id).all()
-    return render_template("games/games.html", games=games)
+    query_games = Game.query.order_by(Game.id).all()
+    response = [r.serialize() for r in query_games]
+    return json.dumps(response), 200, {"Content-Type": "application/json"}

@@ -2,7 +2,7 @@ def test_post_add_new_game(test_client):
     """
     GIVEN a flask app
     WHEN the '/games' is POST
-    THEN check endpoint is success
+    THEN new game is created, HTTP response 201
     """
     response = test_client.post(
         "/games",
@@ -35,3 +35,17 @@ def test_post_add_new_game(test_client):
     )
 
     assert response.status_code == 201
+
+
+def test_get_all_games(populate_db):
+    """
+    GIVEN a flask app
+    WHEN the '/games' is GET
+    THEN return all games
+    """
+    response = populate_db.get(
+        "games/"
+    )
+
+    assert response.status_code == 200
+    assert response.data == b'[{"id": 1, "name": "pokerena", "description": "Dummy game", "date": "2021-05-27T00:00:00"}]'

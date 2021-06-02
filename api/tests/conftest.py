@@ -1,10 +1,11 @@
 import pytest
 from flask import current_app
 from pokerena import create_app, db
-from pokerena.models import User
+from pokerena.models import Game, User
+from datetime import datetime
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def test_client():
     app = _get_flask_test_app()
 
@@ -24,6 +25,15 @@ def new_user():
     with app.app_context():
         user = User("dummy_user", "dummy@me.com", "1234")
         yield user
+
+
+@pytest.fixture(scope="function")
+def populate_db(test_client):
+    game = Game("pokerena", "Dummy game", datetime.fromisoformat("2021-05-27"))
+    db.session.add(game)
+    db.session.commit()
+
+    yield test_client
 
 
 def _get_flask_test_app():

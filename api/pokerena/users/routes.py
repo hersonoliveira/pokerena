@@ -39,7 +39,7 @@ def get_all_users():
     query_response = User.query.all()
     response = {user.email: user.name for user in query_response}
 
-    return response, 200, {'Content-Type': 'application/json'}
+    return response, 200, {"Content-Type": "application/json"}
 
 
 @users_blueprint.route("/", methods=["POST"])

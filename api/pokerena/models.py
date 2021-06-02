@@ -24,6 +24,14 @@ class Game(db.Model):
     def __repr__(self):
         return f"<Game(name='{self.name}', description='{self.description}', date='{self.date}')>"
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "description": self.description,
+            "date": self.date.isoformat()
+        }
+
 
 class User(db.Model):
     """
