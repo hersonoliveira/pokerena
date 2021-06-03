@@ -95,6 +95,22 @@ def list_games():
     """
     Get all games
     ---
+    description: get all games registered
+    definitions:
+      Game:
+        type: json
+        properties:
+            game_name:
+                type: string
+            description:
+                type: string
+            date:
+                type: date
+    responses:
+      200:
+        description: List of games
+        schema:
+            $ref: '#/definitions/Game'
     """
     query_games = Game.query.order_by(Game.id).all()
     response = [r.serialize() for r in query_games]

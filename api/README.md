@@ -16,6 +16,7 @@ It's recommended that you create a virtual environment, I'm using here `venv` th
 
 ```
 $ python -m venv venv
+$ source venv/bin/activate
 ```
 
 Now install the dependencies
